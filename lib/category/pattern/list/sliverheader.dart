@@ -23,6 +23,8 @@ class _SliverHeaderWidgetState extends State<SliverHeaderWidget> with SingleTick
             pinned: true,
             elevation: 0,
             expandedHeight: 250,
+            leading: null,
+            automaticallyImplyLeading: false,
             flexibleSpace: FlexibleSpaceBar(
               title: Text('SliverHeader'),
               background: Image.asset(
