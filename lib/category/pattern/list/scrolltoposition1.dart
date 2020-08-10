@@ -61,15 +61,11 @@ class _ScrollablePositionedListPageState extends State<ScrollablePositionedListP
                 child: list(orientation),
               ),
               positionsView,
-              Row(
+              Column(
                 children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      scrollControlButtons,
-                      jumpControlButtons,
-                      alignmentControl,
-                    ],
-                  ),
+                  scrollControlButtons,
+                  jumpControlButtons,
+                  alignmentControl,
                 ],
               )
             ],
@@ -139,37 +135,37 @@ class _ScrollablePositionedListPageState extends State<ScrollablePositionedListP
   Widget get scrollControlButtons => Row(
         children: <Widget>[
           const Text('scroll to'),
-          scrollButton(0),
-          scrollButton(5),
-          scrollButton(10),
-          scrollButton(100),
-          scrollButton(1000),
-          scrollButton(5000),
+          Expanded(child: scrollButton(0)),
+          Expanded(child: scrollButton(5)),
+          Expanded(child: scrollButton(10)),
+          Expanded(child: scrollButton(100)),
+          Expanded(child: scrollButton(1000)),
+          Expanded(child: scrollButton(5000)),
         ],
       );
 
   Widget get jumpControlButtons => Row(
         children: <Widget>[
           const Text('jump to'),
-          jumpButton(0),
-          jumpButton(5),
-          jumpButton(10),
-          jumpButton(100),
-          jumpButton(1000),
-          jumpButton(5000),
+          Expanded(child: jumpButton(0)),
+          Expanded(child: jumpButton(5)),
+          Expanded(child: jumpButton(10)),
+          Expanded(child: jumpButton(100)),
+          Expanded(child: jumpButton(1000)),
+          Expanded(child: jumpButton(5000)),
         ],
       );
 
   Widget scrollButton(int value) => GestureDetector(
         key: ValueKey<String>('Scroll$value'),
         onTap: () => scrollTo(value),
-        child: Padding(padding: const EdgeInsets.symmetric(horizontal: 20), child: Text('$value')),
+        child: Padding(padding: const EdgeInsets.symmetric(horizontal: 2), child: Text('$value')),
       );
 
   Widget jumpButton(int value) => GestureDetector(
         key: ValueKey<String>('Jump$value'),
         onTap: () => jumpTo(value),
-        child: Padding(padding: const EdgeInsets.symmetric(horizontal: 20), child: Text('$value')),
+        child: Padding(padding: const EdgeInsets.symmetric(horizontal: 2), child: Text('$value')),
       );
 
   void scrollTo(int index) =>
